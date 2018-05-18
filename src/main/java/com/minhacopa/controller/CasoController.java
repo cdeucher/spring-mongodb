@@ -41,12 +41,12 @@ public class CasoController {
 	}	
 	
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public Caso addNewCasos(@RequestBody String data) {
+	public Caso addNewCasos(@RequestBody Caso caso) {
 		LOG.info("Saving Caso.");
-		LOG.info(data);
-		Gson g = new Gson();
-		Caso caso = g.fromJson(data, Caso.class);
-		System.out.println(caso.getNm_PACIENT());		
+		//LOG.info(caso);
+		//Gson g = new Gson();
+		//Caso caso = g.fromJson(data, Caso.class);
+		System.out.println(caso.getDoenca());		
 		return casoRepository.save(caso);
 	}	
 	
