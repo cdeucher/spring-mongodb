@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,14 +29,15 @@ public class WarningController {
 	
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public List<Warning> getAllWarnings() {
-		LOG.info("Getting all Warnings.");
-		return warningRepository.findAll();
+		LOG.info("Getting all Warnings:");
+		return warningRepository.findAll(new Sort(Sort.Direction.ASC, "data"));
+		//return warningRepository.findAll();
 	}
 		
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public Warning addNewWarnings(@RequestBody Warning warning) {
 		LOG.info("Saving Warning.");
-		System.out.println(warning.getName());		
+		System.out.println(warning.getCasos());		
 		return warningRepository.save(warning);
 	}	
 	
@@ -57,7 +59,7 @@ public class WarningController {
 		
 		///
 		Warning tmp = new Warning();
-		tmp.setName("go..");
+		tmp.setCasos(10);
 		warningRepository.save(tmp);
 		///
 		log.add("add go");

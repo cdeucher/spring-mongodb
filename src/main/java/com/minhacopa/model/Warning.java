@@ -9,9 +9,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Warning {
 	@Id
 	private String warningId;
-	private String name;
+	private Integer casos;
+	private Date data;
 	
-	private Date creationDate = new Date();
 
 	public String getWarningId() {
 		return warningId;
@@ -21,20 +21,22 @@ public class Warning {
 		this.warningId = warningId;
 	}
 
-	public String getName() {
-		return name;
+	public Integer getCasos() {
+		return casos;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setCasos(Integer casos) {
+		this.casos = casos;
 	}
 
-	public Date getCreationDate() {
-		return creationDate;
+	public Date getData() {
+		return data;
 	}
 
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
+	public void setData(Date data) {
+		this.data = data;
 	}
+
+
 	
 }
